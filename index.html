@@ -1,16 +1,7 @@
 <!doctype html>
 <html>
     <head>
-                <script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
-        <script>
-        $('#myCheck').each(function(){
-            alert('teste');
-            $(this).hide();
-         });
-            </script>
+
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
@@ -33,8 +24,21 @@
                     }.bind(this));
                 },
             });
-
-        
+            Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
+get: function () {
+    return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
+}});
+        $('body').on('click touchstart', function () {
+        const videoElement = document.getElementById('vid');
+        if (videoElement.playing) {
+            // video is already playing so do nothing
+        }
+        else {
+            // video is not playing
+            // so play video now
+            videoElement.play();
+        }
+});
         </script>
     </head>
 
