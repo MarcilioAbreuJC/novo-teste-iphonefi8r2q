@@ -14,7 +14,6 @@
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
                         this.vid.play();
-                        this.video.play();
                     }.bind(this));
 
                     marker.addEventListener('markerLost', function () {
@@ -70,6 +69,11 @@
                     rotation="-90 0 0"
                     class="clickable"
                     gesture-handler
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    autoplay
+                    playsinline
                 ></a-video>
             </a-marker>
 
